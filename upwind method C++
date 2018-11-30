@@ -37,7 +37,6 @@ vector<double> upwind(int a, int b, double dx, double dt, int max_t, int t){
     }
     
     vector<double> true_solution;
-    vector<double> approx_solution;
 
     vector<double> Q;
     for (int j=0; j<space.size(); ++j){
