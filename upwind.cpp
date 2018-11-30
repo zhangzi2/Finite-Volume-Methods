@@ -1,10 +1,4 @@
-//
-//  main.cpp
-//  finite_volume_methods
-//
-//  Created by Kevin Zhang on 11/28/18.
-//  Copyright © 2018 Kevin Zhang. All rights reserved.
-//
+
 #include <vector>
 #include <iostream>
 #include <math.h>
