@@ -32,12 +32,12 @@ function [q_0] = q_0(x)
         for j=1:length(space)
            Q(j) = q_0(space(j));
         end
-        %{
+        
         subplot(3,1,1)
         plot(space, Q, 'o');hold on;
         plot(space,true_0);hold on;
         title('t=0'); legend('upwind approximation', 'true solution');
-        %}
+        
         F=zeros(1,length(space)+1);
         F(1) = 1;
         for i=2:length(Q)+1
@@ -52,7 +52,7 @@ function [q_0] = q_0(x)
             for i=2:length(Q)+1
                 F(i) = Q(i-1);
             end
-            %{
+            
             if time(j) == 20 
                 subplot(3,1,2)
                 plot(space,Q,'o');hold on;
@@ -67,11 +67,5 @@ function [q_0] = q_0(x)
             end
             
         end
-        
-        set(0,'DefaultFigureWindowStyle','docked')
-        
-        %}
-        end
-        size(space)
-        size(Q)
-    end
+end
+    
