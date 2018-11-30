@@ -65,7 +65,6 @@ vector<double> upwind(int a, int b, double dx, double dt, int max_t, int t){
     return vector<double>();
 }
 int main() {
-    vector<double> v = upwind(0,10,.1,.1,10,3);
-    cout<<*v.end();
+    vector<double> v = upwind(0,50,.1,.08,40,20);
     return 0;
 }
