@@ -21,13 +21,6 @@ double q_0(double x){
     return q_0;
 }
 
-double q_true(double x, double t){
-    double q_true;
-    if (x-1<=1){q_true=1.0;}
-    else {q_true=0.0;}
-    return q_true;
-}
-
 vector<double> upwind(int a, int b, double dx, double dt, int max_t){
     vector<double> space;
     for (int j=0; j<=(b-a)/dx; ++j){
