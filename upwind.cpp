@@ -1,7 +1,17 @@
+//
+//  main.cpp
+//  upwind
+//
+//  Created by Kevin Zhang on 11/30/18.
+//  Copyright © 2018 Kevin Zhang. All rights reserved.
+//
 
-#include <vector>
 #include <iostream>
+#include <fstream>
+#include <vector>
 #include <math.h>
+#include "upwind.h"
+
 using namespace std;
 
 double q_0(double x){
@@ -18,7 +28,7 @@ double q_true(double x, double t){
     return q_true;
 }
 
-vector<double> upwind(int a, int b, double dx, double dt, int max_t, int t){
+vector<double> upwind(int a, int b, double dx, double dt, int max_t){
     vector<double> space;
     for (int j=0; j<=(b-a)/dx; ++j){
         space.push_back(j*dx);
@@ -30,7 +40,8 @@ vector<double> upwind(int a, int b, double dx, double dt, int max_t, int t){
     }
     
     vector<double> true_solution;
-
+    vector<double> approx_solution;
+    
     vector<double> Q;
     for (int j=0; j<space.size(); ++j){
         Q.push_back(q_0(space[j]));
@@ -50,9 +61,7 @@ vector<double> upwind(int a, int b, double dx, double dt, int max_t, int t){
         for (int k = 1; k < Q.size()+1; ++k){
             F[k] = Q[k-1];
         }
-        if (time[j] == t){
-            return Q;
-        }
     }
-    return vector<double>();
+    return Q;
 }
+
