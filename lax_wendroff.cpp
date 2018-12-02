@@ -33,9 +33,7 @@ vector<double> lax_wendroff(int a, int b, double dx, double dt, int max_t){
     for (int j=0; j<=max_t/dt; ++j){
         time.push_back(j*dt);
     }
-    
-    vector<double> true_solution;
-    
+       
     vector<double> Q;
     for (int j=0; j<space.size(); ++j){
         Q.push_back(q_0(space[j]));
