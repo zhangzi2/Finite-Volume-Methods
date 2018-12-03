@@ -44,7 +44,7 @@ vector<double> lax_wendroff(int a, int b, double dx, double dt, int max_t){
     for (int j=1; j<Q.size(); ++j){
         F.push_back(Q[j-1]+0.5*(1-nu)*(Q[j]-Q[j-1]));
     }
-    F.push_back(*Q.end());
+    F.push_back(*(Q.end()-1));
     
     for (int j=1; j < time.size(); ++j){
         Q[0] = 1;
@@ -54,7 +54,7 @@ vector<double> lax_wendroff(int a, int b, double dx, double dt, int max_t){
         for (int k = 1; k < Q.size(); ++k){
             F[k] = Q[k-1]+0.5*(1-nu)*(Q[k]-Q[k-1]);
         }
-        *F.end() = *Q.end();
+        *(F.end()-1) = *(Q.end()-1);
     }
     return Q;
 }
