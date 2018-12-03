@@ -60,7 +60,7 @@ vector<double> MC_limiter(int a, int b, double dx, double dt, int max_t){
             F.push_back(Q[i-1] + phi*0.5*(1-nu)*(Q[i]-Q[i-1]));
         }
     }
-    F.push_back(*Q.end());
+    F.push_back(*(Q.end()-1));
     
     for (int j = 1; j<time.size(); ++j) {
         Q[0] = 1;
@@ -82,7 +82,7 @@ vector<double> MC_limiter(int a, int b, double dx, double dt, int max_t){
             double phi = fmax(0,fmin(0.5+theta/2, fmin(2,2*theta)));
             F[i] = Q[i-1] + phi*0.5*(1-nu)*(Q[i]-Q[i-1]);
         }
-        *F.end() = *Q.end();
+        *(F.end()-1) = *(Q.end()-1);
     }
     return Q;
 }
