@@ -54,7 +54,7 @@ vector<double> lax_wendroff(int a, int b, double dx, double dt, int max_t){
         for (int k = 1; k < Q.size(); ++k){
             F[k] = Q[k-1]+0.5*(1-nu)*(Q[k]-Q[k-1]);
         }
-        F.push_back(*Q.end());
+        *F.end() = *Q.end();
     }
     return Q;
 }
